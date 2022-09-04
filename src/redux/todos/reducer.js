@@ -1,4 +1,4 @@
-import { ADDTODO, ALLCOMPLETETODO, COLORSELECTED, DELETETODO, TOGGLETODO, CLEARTODO } from "./actionTypes";
+import { ADDTODO, ALLCOMPLETETODO, COLORSELECTED, DELETETODO, TOGGLETODO, CLEARTODO, LOADED } from "./actionTypes";
 import initialState from "./initialState";
 
 
@@ -7,8 +7,9 @@ const nextTodoId = (todos) => {
     return MaxId + 1
 }
 const todoReducer = (state = initialState, action) => {
-    console.log("ffdf", action)
     switch (action.type) {
+        case LOADED:
+            return action.payload
         case ADDTODO:
             return [
                 ...state,

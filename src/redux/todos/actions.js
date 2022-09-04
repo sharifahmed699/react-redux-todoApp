@@ -1,5 +1,11 @@
-import { ADDTODO, ALLCOMPLETETODO, CLEARTODO, COLORSELECTED, DELETETODO, TOGGLETODO } from "./actionTypes"
+import { LOADED, ADDTODO, ALLCOMPLETETODO, CLEARTODO, COLORSELECTED, DELETETODO, TOGGLETODO } from "./actionTypes"
 
+export const loaded = (value) => {
+    return {
+        type: LOADED,
+        payload: value
+    }
+}
 export const addTodo = (value) => {
     return {
         type: ADDTODO,

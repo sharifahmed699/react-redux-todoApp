@@ -4,6 +4,7 @@ import tickImage from "../assets/images/double-tick.png";
 import noteImage from "../assets/images/notes.png";
 import plusImage from "../assets/images/plus.png";
 import { addTodo, allCompleteTodo, allClearTodo } from "../redux/todos/actions"
+import addTodos from "../redux/todos/thunk/addTodo";
 
 export default function Header() {
     const dispatch = useDispatch()
@@ -13,16 +14,14 @@ export default function Header() {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(addTodo(input))
+        dispatch(addTodos(input))
         setInput("")
 
     }
     const handleCompleteAll = () => {
-        console.log("qqqqqqqqq")
         dispatch(allCompleteTodo())
     }
     const handleClearAll = () => {
-        console.log("kkkkkkkkkkk")
         dispatch(allClearTodo())
     }
     return (
