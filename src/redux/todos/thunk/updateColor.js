@@ -1,19 +1,19 @@
-import { toggleTodo } from "../actions"
+import { colorSelect } from "../actions"
 
-const updateStatus = (todoId, currentStattus) => {
+const updateColor = (todoId, color) => {
     return async (dispatch) => {
         const response = await fetch(`http://localhost:9000/todos/${todoId}`, {
             method: "PATCH",
             body: JSON.stringify({
-                completed: !currentStattus
+                color: color
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
             }
         })
         const todo = await response.json()
-        dispatch(toggleTodo(todo.id))
+        dispatch(colorSelect(todo.id, todo.color))
     }
 }
 
-export default updateStatus
+export default updateColor
